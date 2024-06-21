@@ -5,9 +5,9 @@ GRUB_FILES="/boot/grub/grub.cfg /boot/grub2/grub.cfg /boot/boot/grub.cfg /boot/g
 
 download() {
     [ -f $IMAGE -a -f /boot/istoreos_stage2.sh ] && return 0
-    local img=`wget -O- https://fw.koolcenter.com/iStoreOS/x86_64/version.latest | head -1 | sed -E 's/.*\((.+)\).*/\1/'`
+    local img=`wget -O- https://fw.koolcenter.com/iStoreOS/x86_64_efi/version.latest | head -1 | sed -E 's/.*\((.+)\).*/\1/'`
     [ -z "$img" ] && exit 1
-    wget -O $IMAGE "https://fw.koolcenter.com/iStoreOS/x86_64/$img" || exit 1
+    wget -O $IMAGE "https://fw.koolcenter.com/iStoreOS/x86_64_efi/$img" || exit 1
 }
 
 create_stage2() {
